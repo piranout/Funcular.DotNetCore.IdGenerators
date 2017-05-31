@@ -13,14 +13,16 @@
     <PackageReleaseNotes>This is the initial port of Funcular IdGenerators to .NET Core. Started with NetCoreApp 1.1, forked from the 2.6.5 version of Funcular.IdGenerators.</PackageReleaseNotes>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="bin\Release\netcoreapp1.1\Funcular.DotNetCore.IdGenerators.deps.json" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp1.0|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP1_0;NETCOREAPP1_1</DefineConstants>
+    <DocumentationFile>bin\Release\netcoreapp\Funcular.DotNetCore.IdGenerators.xml</DocumentationFile>
+    <OutputPath>bin\Release\netcoreapp\</OutputPath>
+  </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\Funcular.DotNetCore.IdGenerators.1.0.0.nupkg" />
-    <None Include="bin\Release\netcoreapp1.1\Funcular.DotNetCore.IdGenerators.dll" />
-    <None Include="bin\Release\netcoreapp1.1\Funcular.DotNetCore.IdGenerators.pdb" />
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
   </ItemGroup>
 
   <ItemGroup>
