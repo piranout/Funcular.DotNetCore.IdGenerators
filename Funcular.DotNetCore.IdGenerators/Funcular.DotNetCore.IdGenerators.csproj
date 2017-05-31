@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Copyright>© 2013 - 2017 Funcular Labs and Paul C Smith</Copyright>
     <Description>K-ordered, semi-random, distributed unique Id generator using base 36. Overcomes several weaknesses of integer, Guid and SequentialGuid identifiers.</Description>
