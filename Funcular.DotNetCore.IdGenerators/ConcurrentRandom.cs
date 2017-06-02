@@ -2,6 +2,10 @@ using System;
 
 namespace Funcular.DotNetCore.IdGenerators
 {
+    /// <summary>
+    /// Thread-safe slim version of <see cref="System.Random"/>.
+    /// Only produces Int64s.
+    /// </summary>
     public static class ConcurrentRandom
     {
         [ThreadStatic]
@@ -13,6 +17,13 @@ namespace Funcular.DotNetCore.IdGenerators
         {
         }
 
+
+        /// <summary>
+        /// Like <see cref="Random.Next()"/>, but a) returns a 
+        /// <see cref="long"/>  instead of an <see cref="int"/>, 
+        /// and b) is thread safe.
+        /// </summary>
+        /// <returns></returns>
         public static long NextLong()
         {
             lock (_lock)
@@ -27,6 +38,9 @@ namespace Funcular.DotNetCore.IdGenerators
             }
         }
 
+        /// <summary>
+        /// Access to the underlying (non-thread-safe) <see cref="System.Random"/> instance.
+        /// </summary>
         public static Random Random
         {
             get
@@ -36,6 +50,10 @@ namespace Funcular.DotNetCore.IdGenerators
                 return _random = new Random();
             }
         }
+
+        /// <summary>
+        /// User-set max desired random value.
+        /// </summary>
         public static long MaxRandom { get; set; }
     }
 }

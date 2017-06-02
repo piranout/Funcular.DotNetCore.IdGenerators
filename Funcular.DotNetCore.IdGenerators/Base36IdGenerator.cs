@@ -50,6 +50,9 @@ using Funcular.DotNetCore.IdGenerators.Enums;
 // ReSharper disable RedundantCaseLabel
 namespace Funcular.DotNetCore.IdGenerators
 {
+    /// <summary>
+    /// Generates unique, ordered, human-readable string identifiers.
+    /// </summary>
     public class Base36IdGenerator
     {
         #region Private fields
@@ -84,10 +87,15 @@ namespace Funcular.DotNetCore.IdGenerators
 
         #region Public properties
 
-        public string HostHash { get { return _hostHash; } }
+        /// <summary>
+        /// SHA1 hash of the current hostname, in Base 36.
+        /// </summary>
+        protected string HostHash => _hostHash;
 
-        public DateTime EpochDate { get { return _epoch; } }
-
+        /// <summary>
+        /// 1970-01-01 midnight UTC by default. 
+        /// </summary>
+        protected DateTime EpochDate => _epoch;
         #endregion
 
 
@@ -102,10 +110,12 @@ namespace Funcular.DotNetCore.IdGenerators
             _randomLock = new object();
         }
 
+        /// <summary>
         ///     The default Id format is 11 characters for the timestamp (4170 year lifespan),
         ///     4 for the server hash (1.6m hashes), 5 for the random value (60m combinations),
         ///     and no reserved character. The default delimited format will be four dash-separated
         ///     groups of 5.
+        /// </summary>
         public Base36IdGenerator()
             : this(11, 4, 5, "", "-")
         {

@@ -46,6 +46,9 @@ using System.Linq;
 #endregion
 
 
+ 
+/*  TODO: Create instance converter the constructor of which accepts
+    a char list, and implicitly sets the base to its length. */
 
 namespace Funcular.DotNetCore.IdGenerators.BaseConversion
 {
@@ -126,7 +129,6 @@ namespace Funcular.DotNetCore.IdGenerators.BaseConversion
         {
             unchecked
             {
-                //char[] clistarr = CharList.ToCharArray();
                 var result = new Stack<char>();
                 while (input != 0)
                 {

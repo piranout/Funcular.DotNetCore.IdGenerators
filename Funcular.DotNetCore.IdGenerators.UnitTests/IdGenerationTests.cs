@@ -94,10 +94,9 @@ namespace Funcular.DotNetCore.IdGenerators.UnitTests
         [TestMethod]
         public void Server_Hash_Does_Not_Throw()
         {
-            string result;
             try
             {
-                Assert.IsTrue(!string.IsNullOrWhiteSpace(result = this._idGenerator.ComputeHostHash("RD00155DC193F9")));
+                Assert.IsTrue(!string.IsNullOrWhiteSpace(this._idGenerator.ComputeHostHash("RD00155DC193F9")));
             }
             catch (Exception e)
             {
