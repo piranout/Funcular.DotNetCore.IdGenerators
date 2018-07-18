@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Copyright>© 2013 - 2017 Funcular Labs and Paul C Smith</Copyright>
     <Description>K-ordered, semi-random, distributed unique Id generator using base 36. Overcomes several weaknesses of integer, Guid and SequentialGuid identifiers.</Description>
@@ -11,12 +11,13 @@
     <RepositoryType>Git</RepositoryType>
     <PackageTags>Id Generator, Base 36, Random, K-Ordered</PackageTags>
     <PackageReleaseNotes>This is the initial port of Funcular IdGenerators to .NET Core. Started with NetCoreApp 1.1, forked from the 2.6.5 version of Funcular.IdGenerators.</PackageReleaseNotes>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp1.0|AnyCPU'">
-    <DefineConstants>TRACE;RELEASE;NETCOREAPP1_0;NETCOREAPP1_1</DefineConstants>
-    <DocumentationFile>bin\Release\netcoreapp\Funcular.DotNetCore.IdGenerators.xml</DocumentationFile>
-    <OutputPath>bin\Release\netcoreapp\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
+    <DocumentationFile>bin\Release\netstandard\Funcular.DotNetCore.IdGenerators.xml</DocumentationFile>
+    <OutputPath>bin\Release\netstandard\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
   </ItemGroup>
 
 </Project>
